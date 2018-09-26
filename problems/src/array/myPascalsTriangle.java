@@ -22,30 +22,45 @@ Below is the syntax highlighted version of Pascal.java from §1.4 Arrays.
  ******************************************************************************/
 
 public class Pascal { 
-    public static void main(String[] args) { 
-        int n = Integer.parseInt(args[0]);
-        int[][] pascal  = new int[n+1][];
-
+    
+    public int[][] pascal = null;
+    
+    //given the triangle up to the n-th row of the triangle
+    public int[][] buildTriangle(int n) {
+    
+        private int[][] pascal  = new int[n+1][];
+        
         // initialize first row
         pascal[1] = new int[1+2];
         pascal[1][1] = 1;
-
+        
         // fill in Pascal's triangle
         for (int i = 2; i <= n; i++) {
             pascal[i] = new int[i+2];
             for (int j = 1; j < pascal[i].length - 1; j++)
                 pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
         }
-
-        // print results
+        
+        return pascal;
+    }
+    
+    //stub to test the buildTrangle function
+    public static void main(String[] args) { 
+        
+        int n = 4;
+        pascal = buildTriangle(n);
+       
+        // print the n-th row of the pascal's triange 
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j < pascal[i].length - 1; j++) {
-                System.out.print(pascal[i][j] + " ");
+                if(i == n){
+                    System.out.print(pascal[i][j] + " ");
+                }
             }
-            System.out.println();
+            //System.out.println();
         }
     }
 }
 
-Copyright © 2000–2017, Robert Sedgewick and Kevin Wayne. 
-Last updated: Fri Oct 20 14:12:12 EDT 2017. 
+//Copyright © 2000–2017, Robert Sedgewick and Kevin Wayne. 
+//Last updated: Fri Oct 20 14:12:12 EDT 2017. 
