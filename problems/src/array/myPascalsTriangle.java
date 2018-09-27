@@ -23,12 +23,12 @@ Below is the syntax highlighted version of Pascal.java from §1.4 Arrays.
 
 public class Pascal { 
     
-    public int[][] pascal = null;
+    public static int[][] pascal = null;
     
     //given the triangle up to the n-th row of the triangle
-    public int[][] buildTriangle(int n) {
+    public static int[][] buildTriangle(int n){
     
-        private int[][] pascal  = new int[n+1][];
+        pascal  = new int[n+1][];
         
         // initialize first row
         pascal[1] = new int[1+2];
@@ -47,7 +47,7 @@ public class Pascal {
     //stub to test the buildTrangle function
     public static void main(String[] args) { 
         
-        int n = 4;
+        int n = 10;
         pascal = buildTriangle(n);
        
         // print the n-th row of the pascal's triange 
@@ -61,6 +61,7 @@ public class Pascal {
         }
     }
 }
+
 
 //Copyright © 2000–2017, Robert Sedgewick and Kevin Wayne. 
 //Last updated: Fri Oct 20 14:12:12 EDT 2017. 
